@@ -9,6 +9,10 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    position: sticky;
+    background-color: #fff;
+    top: 0;
+    z-index: 1;
 }
 
 .header_logo {
@@ -36,7 +40,6 @@ button {
     cursor: pointer;
     box-shadow: 0 16px 36px rgb(52 213 68 / 22%);
     padding: 15px;
-    transition: background-color 0.3s ease-in;
 }
 
 .about_image {
@@ -44,8 +47,10 @@ button {
 }
 
 .about_sun-image {
+    position: absolute;
     width: 100px;
     height: 100px;
+    animation: rotation 10s infinite linear;
 }
 
 .about {
@@ -123,24 +128,14 @@ button {
     margin-bottom: 15px;
 }
 
-.form input {
+.form input, .form select {
     font-size: 18px;
     color: #213053;
     height: 60px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 0 20px;
     border-radius: 15px;
     border: none;
-}
-
-.form select {
-    font-size: 18px;
-    color: #213053;
-    height: 60px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 15px;
-    border: none;
+    outline: none;
 }
 
 .form__submit {
@@ -160,10 +155,11 @@ input {
 button:hover {
     background-color: #f6980c;
     box-shadow: 0 16px 36px rgb(246 152 12 / 20%);
+    transition: background-color 0.3s ease-in;
 }
 
 footer {
-    padding: 90px 90px 20px 20px;
+    padding: 90px 20px;
     font-size: 16px;
     font-weight: 600;
 }
@@ -181,10 +177,9 @@ footer {
 
 .footer__group {
     margin-right: 80px;
-
 }
 
-.footer__group h3 {
+footer h3 {
     font-size: 16px;
     opacity: 0.7;
     margin-bottom: 30px;
@@ -195,7 +190,65 @@ footer {
     flex-direction: column;
 }
 
-.footer__links a{
+.footer__links a {
     margin-bottom: 15px;
 }
 
+@keyframes rotation {
+    from { transform: rotate(0) }
+    to { transform: rotate(360deg) }
+}
+
+@media (max-width: 1024px) {
+    .about {
+        padding-left: 115px 20px;
+    }
+    .about h1 {
+        font-size: 36px;
+        line-height: 40px;
+    }
+    .about_image {
+        width: 280px;
+    }
+    .about_sun-image {
+        width: 75px;
+        height: 75px;
+    }
+}
+
+@media (max-width: 720px) {
+    header {
+        padding: 10px;
+    }
+    header a {
+        margin-right: 10px;
+    }
+    .header_logo {
+        height: 20px;
+    }
+    .about {
+        padding: 50px 10px;
+        flex-direction: column-reverse;
+    }
+    .about h1, .form h1 {
+        font-size: 36px;
+        line-height: 40px;
+    }
+    .about_image {
+        width: 280px;
+    }
+    .about_sun-image {
+        width: 75px;
+        height: 75px;
+    }
+    .form {
+        padding: 50px 10px;
+    }
+    footer {
+        padding: 50px 10px;
+    }
+    .footer__container {
+        flex-direction: column;
+    }
+
+}
