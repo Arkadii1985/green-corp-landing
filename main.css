@@ -252,3 +252,8 @@ footer h3 {
     }
 
 }
+
+.animate_animated.animate__fadeInLeft {
+    animation-duration: 6s;
+}
+
